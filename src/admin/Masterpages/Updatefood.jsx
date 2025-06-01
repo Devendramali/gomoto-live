@@ -24,7 +24,7 @@ const Updatefood = () => {
   useEffect(() => {
     const getFoodData = async () => {
       try {
-        const res = await fetch(`http://localhost:5000/api/getfood/${id}`);
+        const res = await fetch(`https://gomoto-backend.onrender.com/api/getfood/${id}`);
         const json = await res.json();
         if (json.success) {
           setaddfood({
@@ -78,7 +78,7 @@ const Updatefood = () => {
     };
 
     try {
-      const resp = await fetch(`http://localhost:5000/api/updatefood/${id}`, {
+      const resp = await fetch(`https://gomoto-backend.onrender.com/api/updatefood/${id}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -100,7 +100,7 @@ const Updatefood = () => {
   };
     const fetchcat = async()=>{
     try {
-      const res = await axios.get("http://localhost:5000/api/catagory")
+      const res = await axios.get("https://gomoto-backend.onrender.com/api/catagory")
       if(res.data.success){
         setCatogary(res.data.data)
       }

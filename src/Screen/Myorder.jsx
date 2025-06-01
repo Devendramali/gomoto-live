@@ -14,7 +14,7 @@ const Myorder = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:5000/api/myorderdata", {
+        const response = await fetch("https://gomoto-backend.onrender.com/api/myorderdata", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

@@ -24,7 +24,7 @@ const Home = () => {
 
   const loadData = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/foodmenu");
+      const res = await axios.get("https://gomoto-backend.onrender.com/api/foodmenu");
       if (res.data.success) {
         setFoodItem(res.data.data);
         const categories = [...new Set(res.data.data.map(item => item.CategoryName))].map(cat => ({ CategoryName: cat, _id: cat, status: cat }));
@@ -38,7 +38,7 @@ const Home = () => {
 
     const fetchCat = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/catagory");
+        const res = await axios.get("https://gomoto-backend.onrender.com/api/catagory");
         if (res.data.success) {
           setCatogary(res.data.data);
         }
@@ -129,7 +129,7 @@ useEffect(() => {
                   <div className="col-lg-3 col-md-6 col-sm-12">
                   <Link to={`/food/${encodeURIComponent(data.CategoryName)}`} className="catogarylink">
                     <div className="catogary">
-                      <figure><img src={`http://localhost:5000/${data.image}`} alt="" /></figure>
+                      <figure><img src={`https://gomoto-backend.onrender.com/${data.image}`} alt="" /></figure>
                       <h3>{data.CategoryName}</h3>
                     </div>
                   </Link>

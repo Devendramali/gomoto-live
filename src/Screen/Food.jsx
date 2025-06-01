@@ -17,7 +17,7 @@ const Food = () => {
 
     const loadData = async () => {
         try {
-            const res = await axios.get("http://localhost:5000/api/foodmenu");
+            const res = await axios.get("https://gomoto-backend.onrender.com/api/foodmenu");
             if (res.data.success) {
                 setfooditem(res.data.data);
                 // const categories = [...new Set(res.data.data.map(item => item.CategoryName))].map(cat => ({ CategoryName: cat, _id: cat }));
@@ -31,7 +31,7 @@ const Food = () => {
     }
         const fetchCat = async () => {
           try {
-            const res = await axios.get("http://localhost:5000/api/catagory");
+            const res = await axios.get("https://gomoto-backend.onrender.com/api/catagory");
             if (res.data.success) {
               setcatogary(res.data.data);
             }
