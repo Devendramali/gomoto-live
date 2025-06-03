@@ -12,7 +12,7 @@ const Foodlist = () => {
 
   const fetchfoodlist = async() =>{
     try {
-      const res =await axios.get("https://gomoto-backend.onrender.com/api/foodmenu")
+      const res =await axios.get("http://localhost:5000/api/foodmenu")
 
       if(res.data.success){
         setfoodlist(res.data.data),
@@ -26,7 +26,7 @@ const Foodlist = () => {
   }
 
   //   const loadData = async () => {
-  //   let response = await fetch("https://gomoto-backend.onrender.com/api/fooddata", {
+  //   let response = await fetch("http://localhost:5000/api/fooddata", {
   //     method: "POST",
   //     headers: {
   //       "Content-Type": "application/json",
@@ -42,7 +42,7 @@ const Foodlist = () => {
   const handeldeletefood = async(id)=>{
     try {
       if(!window.confirm("Delete This Food?")) return;
-      await fetch(`https://gomoto-backend.onrender.com/api/deletefood/${id}`,{
+      await fetch(`http://localhost:5000/api/deletefood/${id}`,{
         method:"DELETE"
       });
        fetchfoodlist();
@@ -56,7 +56,7 @@ const Foodlist = () => {
 
   const handleToggle = async(id)=>{
     try {
-      const res= await fetch(`https://gomoto-backend.onrender.com/api/toggle-food/${id}`,{
+      const res= await fetch(`http://localhost:5000/api/toggle-food/${id}`,{
         method:"PATCH"
       });
       const json = await res.json();

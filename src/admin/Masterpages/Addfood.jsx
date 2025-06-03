@@ -37,7 +37,7 @@ const Addfood = () => {
 
   const fetchcat = async()=>{
     try {
-      const res = await axios.get("https://gomoto-backend.onrender.com/api/catagory")
+      const res = await axios.get("http://localhost:5000/api/catagory")
       if(res.data.success){
         setCatogary(res.data.data)
       }
@@ -65,7 +65,7 @@ const Addfood = () => {
     };
     // console.log(fooddata);
     try {
-      const resp = await fetch("https://gomoto-backend.onrender.com/api/createfood",{
+      const resp = await fetch("http://localhost:5000/api/createfood",{
          method: "POST",
         headers: {
           "Content-Type": "application/json",

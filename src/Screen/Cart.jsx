@@ -32,7 +32,7 @@ const Cart = () => {
     }
 
     try {
-      const response = await fetch("https://gomoto-backend.onrender.com/api/orderdata", {
+      const response = await fetch(`${import.meta.env.VITE_BACK_DOMAIN}/api/orderdata`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

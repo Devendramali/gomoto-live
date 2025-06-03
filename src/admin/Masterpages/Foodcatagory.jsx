@@ -15,7 +15,7 @@ const Foodcatagory = () => {
 
   const fetchCat = async () => {
     try {
-      const res = await axios.get("https://gomoto-backend.onrender.com/api/catagory");
+      const res = await axios.get("http://localhost:5000/api/catagory");
       if (res.data.success) {
         setCatogary(res.data.data);
       }
@@ -44,7 +44,7 @@ const handleaddcat = async (e) => {
   }
 
   try {
-    const response = await fetch("https://gomoto-backend.onrender.com/api/addCategory", {
+    const response = await fetch("http://localhost:5000/api/addCategory", {
       method: "POST",
       body: formData,
       // DO NOT set headers like 'Content-Type': browser will set it for FormData automatically
@@ -75,7 +75,7 @@ const handleaddcat = async (e) => {
 
   const handleDelete = async (id) => {
     if (!window.confirm("Delete this category?")) return;
-    await fetch(`https://gomoto-backend.onrender.com/api/delete/${id}`, { method: "DELETE" });
+    await fetch(`http://localhost:5000/api/delete/${id}`, { method: "DELETE" });
     fetchCat();
   };
 
@@ -88,7 +88,7 @@ const handleaddcat = async (e) => {
   }
 
   try {
-    const res = await fetch(`https://gomoto-backend.onrender.com/api/updatecatagory/${editCatId}`, {
+    const res = await fetch(`http://localhost:5000/api/updatecatagory/${editCatId}`, {
       method: "PUT",
       body: formData,
     });
@@ -112,7 +112,7 @@ const handleaddcat = async (e) => {
 };
     const handleToggle = async (id) => {
       try {
-        const res = await fetch(`https://gomoto-backend.onrender.com/api/toggle-category/${id}`, {
+        const res = await fetch(`http://localhost:5000/api/toggle-category/${id}`, {
           method: "PATCH",
         });
         const json = await res.json();
@@ -169,7 +169,7 @@ const handleaddcat = async (e) => {
                         <tr>
                           <td>{index + 1}</td>
                           <td>{cat.CategoryName}</td>
-                          <td><img src={`https://gomoto-backend.onrender.com/${cat.image}`} alt="" style={{ width: "50px", height: "50px", objectFit: "cover" }} /></td>
+                          <td><img src={`http://localhost:5000/${cat.image}`} alt="" style={{ width: "50px", height: "50px", objectFit: "cover" }} /></td>
                           
                             <td>{cat.status ? "✅ Active" : "❌ Inactive"}</td>
 
